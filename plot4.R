@@ -124,7 +124,7 @@ legend("topright", col=c("black","red","blue"),  lty=c(1,1),
     legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3")
     )
 
-title(ylab="Engergy sub metering")
+title(ylab="Energy sub metering")
 axis(2, las=1, at=10*0:g_range[2])
 
 v1 <- c(min(file2$combo),secondDate[1,"combo"],max(file2$combo))
