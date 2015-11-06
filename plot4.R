@@ -97,6 +97,9 @@ axis(side=1,at=v1,labels=dayVector)
 
 g_range <- c(min(file2$Voltage)-2,max(file2$Voltage)+3)
 
+is.odd <- function(x) { x %% 2 != 0  }
+is.even <- function(x) { x %% 2 == 0  }
+
 plot( file2$combo, file2$Voltage, type = "l",
 	xaxt="n",
 	yaxt="n",
@@ -104,11 +107,19 @@ plot( file2$combo, file2$Voltage, type = "l",
 
 title(ylab="Voltage")
 title(xlab="datetime")
-axis(2, las=1, at=2*0:g_range[2],labels = F)
-axis(2, las=1, at=4*1:g_range[2],labels = T)
+
 v1 <- c(min(file2$combo),secondDate[1,"combo"],max(file2$combo))
 axis(side=1,at=v1,labels=dayVector)
 
+at.labels=axis(2,labels=F)
+
+#  put a label on the tick mark, alternate
+
+for (i in 1:length(at.labels)) {
+	if(is.odd(i)) {
+		axis(2,las=1,at=at.labels[i]*1:g_range[2],labels=T)
+      }
+}
 
 
 #   This is the bottom left  hand corner graph

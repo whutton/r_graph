@@ -40,6 +40,8 @@ shortdays <- function(inV) {
 	substring(a,1,3)
 }
 
+g_range <- c(0,7.482)
+
 #
 #     add a column to the data frame with the date / time merged together.  This
 #     will be the value used for the graph
